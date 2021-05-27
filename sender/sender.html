@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <input placeholder="Enter Username" type="text" id="username-input"/><br>
+        <button onclick="sendusername()">Enviar</button>
+        <button onclick="startCall()">Iniciar Chamada</button>
+    </div>
+    <div id="video-call-div">
+        <video id="local-video" autoplay></video>
+        <video id="remote-video" autoplay></video>
+        <div class="call-action-div">
+            <button onclick="muteVideo()">Desligar Camera</button>
+            <button onclick="muteAudio()">Mute Microfone</button>
+        </div>
+    </div>
+    <script src="./sender.js"></script>
+</body>
+</html>
