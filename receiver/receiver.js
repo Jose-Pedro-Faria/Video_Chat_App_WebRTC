@@ -6,20 +6,24 @@ webSocket.onmessage = (event) => {
 
 function handleSignallingData(data) {
     switch (data.type) {
-        case "answer":
-            peerConn.setRemoteDescription(data.answer)
+        case "offer":
+            peerConn.setRemoteDescription(data.offer)
+            createAndSendAnswer()
             break
         case "candidate":
             peerConn.addIceCandidate(data.candidate)
     }
 }
 
-let username
-function sendUsername() {
-
-    username = document.getElementById("username-input").value
-    sendData({
-        type: "store_user"
+function createAndSendAnswer () {
+    peerConn.createAnswer((answer) => {
+        peerConn.setLocalDescription(answer)
+        sendData({
+            type: "send_answer",
+            answer: answer
+        })
+    }, error => {
+        console.log(error)
     })
 }
 
@@ -31,7 +35,12 @@ function sendData(data) {
 
 let localStream
 let peerConn
-function startCall() {
+let username
+
+function joinCall() {
+
+    username = document.getElementById("username-input").value
+
     document.getElementById("video-call-div")
     .style.display = "inline"
 
@@ -69,26 +78,17 @@ function startCall() {
         peerConn.onicecandidate = ((e) => {
             if (e.candidate == null)
                 return
+            
             sendData({
-                type: "store_candidate",
+                type: "send_candidate",
                 candidate: e.candidate
             })
         })
 
-        createAndSendOffer()
-    }, (error) => {
-        console.log(error)
-    })
-}
-
-function createAndSendOffer() {
-    peerConn.createOffer((offer) => {
         sendData({
-            type: "store_offer",
-            offer: offer
+            type: "join_call"
         })
 
-        peerConn.setLocalDescription(offer)
     }, (error) => {
         console.log(error)
     })
@@ -104,4 +104,4 @@ let isVideo = true
 function muteVideo() {
     isVideo = !isVideo
     localStream.getVideoTracks()[0].enabled = isVideo
-}
+}   
