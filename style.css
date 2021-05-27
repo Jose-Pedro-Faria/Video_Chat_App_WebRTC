@@ -13,8 +13,8 @@
     left: 0;
     margin: 16px;
     border-radius: 16px;
-    width: 20%;
-    height: 20%;
+    max-width: 20%;
+    max-height: 20%;
     background: #ffffff;
 }
 
