@@ -1,0 +1,27 @@
+{
+  "name": "video_chat_app_webrtc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "socket.io": "^4.1.2",
+    "websocket": "^1.0.34"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jose-Pedro-Faria/Video_Chat_App_WebRTC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jose-Pedro-Faria/Video_Chat_App_WebRTC/issues"
+  },
+  "homepage": "https://github.com/Jose-Pedro-Faria/Video_Chat_App_WebRTC#readme"
+}

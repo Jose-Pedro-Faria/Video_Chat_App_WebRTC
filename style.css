@@ -7,6 +7,34 @@
     display: none;
 }
 
+#message-container {
+    width: 80%;
+    max-width: 1200px;
+}
+
+#message-container div {
+    background: #CCC;
+    padding: 5px;
+}
+
+#messagem-container div:nth-child(2n) {
+    background-color: #FFF;
+}
+
+#send-container {
+    position: fixed;
+    padding-bottom: 30px;
+    bottom: 0;
+    background-color: white;
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+}
+
+#message-input {
+    flex-grow: 1;
+}
+
 #local-video {
     position: absolute;
     top: 0;
