@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Enviar</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,9 +12,10 @@
         <input placeholder="Enter username..."
                 type="text"
                 id="username-input" /><br>
-        <button onclick="sendUsername()">Send</button>
-        <button onclick="startCall()">Start Call</button>
+        <button onclick="sendUsername()">Enviar</button>
+        <button onclick="startCall()">Iniciar Chamada</button>
     </div>
+
     <div id="video-call-div">
         <video muted id="local-video" autoplay></video>
         <video id="remote-video" autoplay></video>
@@ -22,16 +23,21 @@
             <button onclick="muteVideo()">Mute Video</button>
             <button onclick="muteAudio()">Mute Audio</button>
         </div>
+
+        <div id="chat">
+            <div id="message-container"></div>
+            <form id="send-container">
+                <input type="text" id="message-input">
+                <button type="submit" id="send-button">Enviar</button>
+            </form>
+        </div>
     </div>
 
-    <div id="message-container"></div>
-    <form id="send-container">
-        <input type="text" id="message-input">
-        <button type="submit" id="send-button">Send</button>
-    </form>
+
 
     <script src="./sender.js"></script>
     <script defer src="../script.js"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 </body>
 
 </html>
